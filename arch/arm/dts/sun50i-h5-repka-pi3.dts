@@ -3,7 +3,7 @@
 
 /dts-v1/;
 #include "sun50i-h5.dtsi"
-#include "sun50i-h5-cpu-opp-1ghz.dtsi" 
+#include "sun50i-h5-cpu-opp-1.4ghz.dtsi"
 
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
@@ -315,13 +315,6 @@
 	regulator-name = "vcc-wifi-io-3";
 };
 
-/*
- * 
- * 
- *     ^__________^
-* 
-*
-*/
 
 &reg_rtc_ldo {
 	regulator-name = "vcc-rtc";
@@ -334,13 +327,13 @@
 
 	status = "disabled";
 	spidev@0 {
-		compatible = "rohm,dh2228fv"; 
+		compatible = "rohm,dh2228fv";  
 		status = "okay";
 		reg = <0>;
 		spi-max-frequency = <1000000>;
 	};
 	spidev@1 {
-		compatible = "rohm,dh2228fv"; 
+		compatible = "rohm,dh2228fv";  
 		status = "okay";
 		reg = <1>;
 		spi-max-frequency = <1000000>;
@@ -410,5 +403,3 @@
 &usbphy {
 	status = "okay";
 };
-
-

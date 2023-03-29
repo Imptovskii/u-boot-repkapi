@@ -188,97 +188,32 @@
 
 	thermal-zones {
 		cpu_thermal: cpu-thermal {
-			/* milliseconds */
-			polling-delay-passive = <250>;
-			polling-delay = <1000>;
+			polling-delay-passive = <0>;
+			polling-delay = <0>;
 			thermal-sensors = <&ths 0>;
 
 			trips {
-				cpu_warm: cpu_warm {
-					temperature = <55000>;  
-					hysteresis = <2000>;
-					type = "passive";
-				};
-
-				cpu_hot0: cpu_hot0 {
-					temperature = <60000>;
-					hysteresis = <2000>;
-					type = "passive";
-				};
-
-				cpu_hot1: cpu_hot1 {
-					temperature = <65000>;
-					hysteresis = <2000>;
-					type = "passive";
-				};
-
-				cpu_very_hot0: cpu_very_hot0 {
-					temperature = <70000>;
-					hysteresis = <2000>;
-					type = "passive";
-				};
-
-				cpu_very_hot1: cpu_very_hot1 {
-					temperature = <75000>;
-					hysteresis = <2000>;
-					type = "passive";
-				};
-				
-				cpu_very_hot2: cpu_very_hot2 {
+				cpu_hot_trip: cpu-hot {
 					temperature = <80000>;
 					hysteresis = <2000>;
 					type = "passive";
 				};
 
-				cpu_very_hot3: cpu_very_hot3 {
-					temperature = <85000>;
-					hysteresis = <2000>;
-					type = "passive";
-				};
-				
-				cpu_crit: cpu_crit {
-					temperature = <95000>;
-					hysteresis = <2000>;
+				cpu_very_hot_trip: cpu-very-hot {
+					temperature = <100000>;
+					hysteresis = <0>;
 					type = "critical";
 				};
 			};
 
 			cooling-maps {
-				cpu_warm_limit_cpu {
-					trip = <&cpu_warm>;
-					cooling-device = <&cpu0 THERMAL_NO_LIMIT 1>;
+				cpu-hot-limit {
+					trip = <&cpu_hot_trip>;
+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+							 <&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 				};
-
-				cpu_hot_limit_cpu0 {
-					trip = <&cpu_hot0>;
-					cooling-device = <&cpu0 1 2>;
-				};
-
-				cpu_hot_limit_cpu1 {
-					trip = <&cpu_hot1>;
-					cooling-device = <&cpu0 2 3>;
-				};
-
-				cpu_very_hot_limit_cpu0 {
-					trip = <&cpu_very_hot0>;
-					cooling-device = <&cpu0 3 4>;
-				};
-
-				cpu_very_hot_limit_cpu1 {
-					trip = <&cpu_very_hot1>;
-					cooling-device = <&cpu0 4 5>;
-				};
-
-				cpu_very_hot_limit_cpu2 {
-					trip = <&cpu_very_hot2>;
-					cooling-device = <&cpu0 5 6>;
-				};
-
-				cpu_very_hot_limit_cpu3 {
-					trip = <&cpu_very_hot3>;
-					cooling-device = <&cpu0 7 THERMAL_NO_LIMIT>;
-				};
-
 			};
 		};
 
@@ -296,6 +231,10 @@
 
 &display_clocks {
 	compatible = "allwinner,sun50i-h5-de2-clk";
+};
+
+&mbus {
+	compatible = "allwinner,sun50i-h5-mbus";
 };
 
 &mmc0 {

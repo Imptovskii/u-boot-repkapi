@@ -1,1 +1,1 @@
-# u-boot-repka
+# U-Boot for RepkaPi
