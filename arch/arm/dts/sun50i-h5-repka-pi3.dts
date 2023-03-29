@@ -189,14 +189,6 @@
 	status = "okay";
 };
 
-&i2c1 {
-	status = "disabled";	/* PA19,PA18 */
-};
-
-&i2c0 {
-	status = "disabled";	/* PA11, PA12 */
-};
-
 &r_i2c {
 	status = "okay";
 
