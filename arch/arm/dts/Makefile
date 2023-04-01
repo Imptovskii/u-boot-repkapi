@@ -651,12 +651,14 @@ dtb-$(CONFIG_MACH_SUN8I_V3S) += \
 	sun8i-s3-pinecube.dtb \
 	sun8i-v3s-licheepi-zero.dtb
 dtb-$(CONFIG_MACH_SUN50I_H5) += \
-sun50i-h5-repka-pi3-1ghz.dtb \
-sun50i-h5-repka-pi3-1.2ghz.dtb \
-sun50i-h5-repka-pi3-1.4ghz.dtb \
-sun50i-h5-repka-pi3-alt-1ghz.dtb \
-sun50i-h5-repka-pi3-alt-1.2ghz.dtb \
-sun50i-h5-repka-pi3-alt-1.4ghz.dtb \
+	sun50i-h5-repka-pi3.dtb \
+	sun50i-h5-repka-pi3-1ghz.dtb \
+	sun50i-h5-repka-pi3-1.2ghz.dtb \
+	sun50i-h5-repka-pi3-1.4ghz.dtb \
+	sun50i-h5-repka-pi3-alt.dtb \
+	sun50i-h5-repka-pi3-alt-1ghz.dtb \
+	sun50i-h5-repka-pi3-alt-1.2ghz.dtb \
+	sun50i-h5-repka-pi3-alt-1.4ghz.dtb \
 	sun50i-h5-bananapi-m2-plus.dtb \
 	sun50i-h5-emlid-neutis-n5-devboard.dtb \
 	sun50i-h5-libretech-all-h3-cc.dtb \
